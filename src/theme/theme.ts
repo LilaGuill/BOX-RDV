@@ -1,3 +1,5 @@
+import { Theme } from "./type"
+
 const colors = {
   background: "#F6F7F8",
   blue: "#2C5282",
@@ -13,12 +15,12 @@ const colors = {
 }
 
 const typography = {
-  fontFamilies: {},
-  fontWeights: {},
-  fontSizes: {},
+  fontFamilies: {
+    openSans: "Open Sans",
+  },
 }
 
-const theme = {
+const theme: Theme = {
   name: "Default theme",
   colors,
   typography,
