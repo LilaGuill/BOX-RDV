@@ -1,11 +1,22 @@
-import React from "react"
-import { Text } from "../../components"
+import React, { useState } from "react"
+import { Card, Toggle, Layout } from "../../components"
 
 const RendezVous = () => {
+  const [isToggled, setIsToggled] = useState(false)
+
   return (
-    <div>
-      <Text>RDV</Text>
-    </div>
+    <Layout>
+      <Card>
+        <Toggle
+          isToggled={isToggled}
+          onClick={() => setIsToggled(!isToggled)}
+          label="hello"
+        />
+        {/* <CheckIcon /> */}
+        {/* 
+          <InputNumber unit="€" value={60} /> */}
+      </Card>
+    </Layout>
   )
 }
 
