@@ -10,10 +10,10 @@ export const SelectContainer = styled.div<{
   flex-direction: column;
   height: 48px;
   position: relative;
-
-  border-left: 4px solid
-    ${({ theme, isFilled }) =>
-      isFilled ? theme.colors.green : theme.colors.white};
+  border-left: ${({ theme, isFilled }) =>
+    isFilled
+      ? `4px solid ${theme.colors.green}`
+      : `1px solid ${theme.colors.grey200}`};
 
   :focus-within label {
     transform: translate(0, 6px) scale(0.95);
@@ -67,7 +67,6 @@ export const SelectComponent = styled(Select).attrs({
 
     &:hover,
     &--is-focused {
-      border: 1px solid ${({ theme }) => theme.colors.grey200};
       box-shadow: none;
 
       &::before {
