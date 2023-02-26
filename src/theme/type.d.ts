@@ -8,7 +8,9 @@ type Colors = {
   grey000: string
   grey100: string
   grey200: string
+  grey400: string
   grey800: string
+  grey700: string
   grey900: string
   red: string
   white: string
