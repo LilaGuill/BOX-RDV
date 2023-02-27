@@ -2,16 +2,16 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 export const CardContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
 `
 
 export const SchedulerContainer = styled.div`
-  margin-left: 12px;
-  display: flex;
   align-items: center;
-  gap: 16px;
+  display: flex;
   flex-grow: 1;
+  gap: 16px;
+  margin-left: 12px;
 `
 
 export const InputContainer = styled.div`
@@ -19,8 +19,8 @@ export const InputContainer = styled.div`
 `
 
 export const TimeContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 16px;
 `
 

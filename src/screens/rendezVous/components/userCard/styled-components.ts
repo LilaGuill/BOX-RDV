@@ -7,10 +7,10 @@ export const CardContainer = styled.div`
 `
 
 export const InputContainer = styled.div`
-  margin-left: 12px;
-  display: flex;
   align-items: center;
-  gap: 16px;
+  display: flex;
+  gap: 14px;
+  margin-left: 8px;
 
   & div:first-child {
     width: 356px;

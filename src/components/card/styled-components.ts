@@ -5,6 +5,6 @@ export const StyledCard = styled.div`
   border-radius: 8px;
   border: ${({ theme }) => `1px solid ${theme.colors.grey200}`};
   box-sizing: border-box;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 10px;
   width: 100%;
 `

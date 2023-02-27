@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Layout } from "../../components"
-import { UseCard, ScheduleCard } from "./components"
+import { UseCard, ScheduleCard, PrestationCard } from "./components"
 import { Container } from "./styled-components"
 
 const RendezVous = () => {
@@ -9,6 +9,7 @@ const RendezVous = () => {
       <Container>
         <UseCard />
         <ScheduleCard />
+        <PrestationCard />
       </Container>
     </Layout>
   )
