@@ -6,6 +6,7 @@ export const InputContainer = styled.div<{ isFilled: boolean }>`
   display: flex;
   flex-direction: column;
   position: relative;
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
 
   :focus-within label {
     transform: translate(0, 6px) scale(0.95);
@@ -31,7 +32,6 @@ export const InputContainer = styled.div<{ isFilled: boolean }>`
 
 export const StyledInput = styled.input<{ isFilled: boolean }>`
   border-radius: 6px;
-  border: 1px solid ${({ theme }) => theme.colors.grey200};
   border: none;
   box-shadow: none;
   box-sizing: border-box;
