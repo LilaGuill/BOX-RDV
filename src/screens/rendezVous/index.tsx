@@ -1,13 +1,15 @@
 import React, { useState } from "react"
 import { Layout } from "../../components"
-import { UseCard } from "./components"
+import { UseCard, ScheduleCard } from "./components"
+import { Container } from "./styled-components"
 
 const RendezVous = () => {
-  const [isToggled, setIsToggled] = useState(false)
-
   return (
     <Layout>
-      <UseCard />
+      <Container>
+        <UseCard />
+        <ScheduleCard />
+      </Container>
     </Layout>
   )
 }

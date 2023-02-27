@@ -1,4 +1,4 @@
-import { Card, Toggle, Layout, Select, InputText } from "../../../../components"
+import { Card, InputText } from "../../../../components"
 import { ReactComponent as UserIcon } from "../../../../assets/user.svg"
 import { CardContainer, InputContainer } from "./styled-components"
 
