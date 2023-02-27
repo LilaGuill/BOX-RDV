@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import { Layout } from "../../components"
-import { UseCard, ScheduleCard, PrestationCard } from "./components"
+import {
+  AddPrestation,
+  PrestationCard,
+  ScheduleCard,
+  UseCard,
+} from "./components"
 import { Container } from "./styled-components"
 
 const RendezVous = () => {
@@ -10,6 +15,7 @@ const RendezVous = () => {
         <UseCard />
         <ScheduleCard />
         <PrestationCard />
+        <AddPrestation />
       </Container>
     </Layout>
   )
