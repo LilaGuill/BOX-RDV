@@ -139,6 +139,7 @@ textarea {
 }
 button {
   overflow: hidden;
+  border: 0;
 }
 input:focus,
 select:focus,
