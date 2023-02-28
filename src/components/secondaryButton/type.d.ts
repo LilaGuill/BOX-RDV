@@ -1,5 +1,5 @@
 type SecondaryButtonProps = {
-  color: string
+  color?: string
   icon: React.ReactElement
   onClick: () => void
   value: string

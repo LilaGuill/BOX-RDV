@@ -5,7 +5,6 @@ const InputDate = () => {
     <StyledInputDate
       datetime-locatype="datetime-local"
       data-date-format="ddd mmmm yyy"
-      value="Lundi 21 mars"
     />
   )
 }

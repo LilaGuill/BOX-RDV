@@ -1,10 +1,10 @@
 import { InputContainer, StyledInput, StyledUnit } from "./styled-components"
 import Text from "../text"
 
-const InputNumber = ({ unit, value }: InputNumberProps) => {
+const InputNumber = ({ unit, value, onChange }: InputNumberProps) => {
   return (
     <InputContainer>
-      <StyledInput id="number" value={value} />
+      <StyledInput defaultValue={value} />
       <StyledUnit>
         <Text weight={400}>{unit}</Text>
       </StyledUnit>

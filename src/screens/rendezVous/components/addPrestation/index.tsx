@@ -2,9 +2,9 @@ import { Container } from "./styled-components"
 import { Text } from "../../../../components"
 import { ReactComponent as AddIcon } from "../../../../assets/add.svg"
 
-const AddPrestation = () => {
+const AddPrestation = ({ onClick }: AddPresatationProps) => {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <AddIcon />
       <Text color="grey800">Ajouter une prestation à la suite</Text>
     </Container>

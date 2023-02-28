@@ -5,3 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 16px;
 `
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  gap: 18px;
+`

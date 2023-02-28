@@ -3,7 +3,7 @@ import { Theme } from "./type"
 const colors = {
   background: "#F6F7F8",
   blue: "#2C5282",
-  blueLight: "##63B3ED",
+  blueLight: "#63B3ED",
   green: "#48BB78",
   grey000: "#F9F9F9",
   grey100: "##F6F7F8",

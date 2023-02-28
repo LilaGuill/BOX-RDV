@@ -17,7 +17,7 @@ export const StyledButton = styled.button<{
   display: flex;
   height: ${({ size }) => (size === "small" ? "40px" : "auto")};
   justify-content: center;
-  padding: ${({ size }) => (size === "small" ? "10px 10px" : "18px 16px")};
+  padding: ${({ size }) => (size == "small" ? "10px 10px" : "18px 16px")};
   transition: all 0.3s ease;
   width: ${({ size }) => (size === "small" ? "40px" : "auto")};
 
