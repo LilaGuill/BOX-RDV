@@ -5,12 +5,16 @@ const SecondaryButton = ({
   onClick,
   value,
   color,
+  background,
   icon,
 }: SecondaryButtonProps) => {
   return (
-    <ButtonContainer onClick={onClick}>
+    <ButtonContainer onClick={onClick} background={background}>
       {icon}
-      <Text underline color={color ? color : "grey900"}>
+      <Text
+        underline={!background && true}
+        color={color ? color : background ? "white" : "grey900"}
+      >
         {value}
       </Text>
     </ButtonContainer>
