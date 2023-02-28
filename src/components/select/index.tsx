@@ -1,3 +1,4 @@
+import { useMemo } from "react"
 import { components, DropdownIndicatorProps, GroupBase } from "react-select"
 import {
   IconContainer,
@@ -7,7 +8,6 @@ import {
   SelectContainer,
 } from "./styled-components"
 import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
-import { useMemo, useState } from "react"
 
 const Select = ({ label, color, options, value, onChange }: SelectProps) => {
   const isFilled = useMemo(() => !!value.value, [value])

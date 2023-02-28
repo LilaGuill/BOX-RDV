@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Colors } from "../../theme/type"
 
 export const InputContainer = styled.div`
   display: flex;
@@ -12,7 +11,6 @@ export const StyledInput = styled.input`
   border: ${({ theme }) => `1px solid ${theme.colors.grey200}`};
   box-sizing: border-box;
   color: ${({ theme }) => theme.colors.grey900};
-  cursor: pointer;
   display: flex;
   font-family: ${({ theme }) => theme.typography.fontFamilies.openSans};
   font-weight: 400;

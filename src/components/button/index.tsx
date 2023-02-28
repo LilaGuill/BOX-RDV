@@ -7,6 +7,7 @@ const Button = ({
   buttonType,
   color,
   onClick,
+  type = "button",
 }: ButtonProps) => {
   return (
     <StyledButton
@@ -14,6 +15,7 @@ const Button = ({
       buttonType={buttonType}
       color={color}
       onClick={onClick}
+      type={type}
     >
       {children}
     </StyledButton>

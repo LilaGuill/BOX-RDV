@@ -1,5 +1,3 @@
-import { useMemo, useState } from "react"
-
 import { Card, Select, InputNumber, Button } from "../../../../components"
 import { ReactComponent as FileIcon } from "../../../../assets/file.svg"
 import { ReactComponent as BinIcon } from "../../../../assets/bin.svg"
@@ -39,7 +37,6 @@ const PrestationCard = ({
         <IconContainer>
           <FileIcon />
         </IconContainer>
-
         <SelectContainer>
           <PrestationContainer>
             <Select

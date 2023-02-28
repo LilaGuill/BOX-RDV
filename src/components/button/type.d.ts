@@ -4,4 +4,5 @@ type ButtonProps = {
   color?: string
   buttonType?: "primary" | "secondary"
   onClick?: (value: any) => void
+  type?: "button" | "submit" | "reset" | undefined
 }

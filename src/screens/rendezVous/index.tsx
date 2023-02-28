@@ -1,26 +1,34 @@
-import React, { useCallback, useState } from "react"
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
+
 import { Layout, SecondaryButton } from "../../components"
 import {
   AddPrestation,
   PrestationCard,
   ScheduleCard,
-  UseCard,
+  UserCard,
 } from "./components"
-import { Container, ContainerButtons } from "./styled-components"
+import { Container, ContainerButtons, Form } from "./styled-components"
 import { ReactComponent as FileIcon } from "../../assets/file.svg"
 import { ReactComponent as EditIcon } from "../../assets/edit.svg"
-import { IndexType } from "typescript"
+import { FormProvider } from "react-hook-form"
 
 type PrestationType = {
   prestationType: { value: string; label: string }
   collaborator: { value: string; label: string }
+  price: number
 }
 
 const RendezVous = () => {
+  const methods = useForm()
+
+  const onSubmit = (data: any) => console.log("data", data)
+
   const [prestations, setPrestations] = useState([
     {
       prestationType: { value: "", label: "" },
       collaborator: { value: "", label: "" },
+      price: 60,
     },
   ])
 
@@ -41,36 +49,41 @@ const RendezVous = () => {
     ))
 
   return (
-    <Layout>
-      <Container>
-        <UseCard />
-        <ScheduleCard />
-        {renderPrestations()}
-        <AddPrestation
-          onClick={() => {
-            setPrestations([
-              ...prestations,
-              {
-                prestationType: { value: "", label: "" },
-                collaborator: { value: "", label: "" },
-              },
-            ])
-          }}
-        />
-        <ContainerButtons>
-          <SecondaryButton
-            value="Ajouter un titre"
-            onClick={() => null}
-            icon={<FileIcon width="10px" height="14px" />}
-          />
-          <SecondaryButton
-            icon={<EditIcon />}
-            value="Ajouter une note"
-            onClick={() => null}
-          />
-        </ContainerButtons>
-      </Container>
-    </Layout>
+    <FormProvider {...methods}>
+      <Form onSubmit={methods.handleSubmit(onSubmit)}>
+        <Layout price={60}>
+          <Container>
+            <UserCard />
+            <ScheduleCard />
+            {renderPrestations()}
+            <AddPrestation
+              onClick={() => {
+                setPrestations([
+                  ...prestations,
+                  {
+                    prestationType: { value: "", label: "" },
+                    collaborator: { value: "", label: "" },
+                    price: 60,
+                  },
+                ])
+              }}
+            />
+            <ContainerButtons>
+              <SecondaryButton
+                value="Ajouter un titre"
+                onClick={() => null}
+                icon={<FileIcon width="10px" height="14px" />}
+              />
+              <SecondaryButton
+                icon={<EditIcon />}
+                value="Ajouter une note"
+                onClick={() => null}
+              />
+            </ContainerButtons>
+          </Container>
+        </Layout>
+      </Form>
+    </FormProvider>
   )
 }
 

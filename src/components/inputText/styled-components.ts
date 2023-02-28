@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components"
-import { Colors } from "../../theme/type"
 
 export const InputContainer = styled.div<{ isFilled: boolean }>`
   border-radius: 6px;
@@ -30,7 +29,11 @@ export const InputContainer = styled.div<{ isFilled: boolean }>`
   }
 `
 
-export const StyledInput = styled.input<{ isFilled: boolean }>`
+export const StyledInput = styled.input<{
+  isFilled: boolean
+  isDisabled?: boolean
+}>`
+  background: ${({ disabled, theme }) => disabled && theme.colors.grey200};
   border-radius: 6px;
   border: none;
   box-shadow: none;

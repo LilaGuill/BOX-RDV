@@ -10,3 +10,8 @@ export const ContainerButtons = styled.div`
   display: flex;
   gap: 18px;
 `
+
+export const Form = styled.form`
+  width: 100%;
+  height: 100%;
+`

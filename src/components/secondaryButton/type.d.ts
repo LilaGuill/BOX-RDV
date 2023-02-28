@@ -4,4 +4,6 @@ type SecondaryButtonProps = {
   onClick?: () => void
   value: string
   background?: string
+  optionalText?: string
+  padding?: string
 }

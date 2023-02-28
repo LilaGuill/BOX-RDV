@@ -1,17 +1,17 @@
 import React from "react"
+import { useFormContext } from "react-hook-form"
 import { InputContainer, StyledInput } from "./styled-components"
 
-const InputText = ({ value, onChange, name, label }: InputTextProps) => {
+const InputText = ({ name, label, id, isDisabled }: InputTextProps) => {
+  const { register, watch } = useFormContext()
+
   return (
-    <InputContainer isFilled={!!value}>
+    <InputContainer isFilled={!!watch(name)}>
       <StyledInput
-        name={name}
-        value={value}
-        isFilled={!!value}
-        onChange={(event) => {
-          event.preventDefault()
-          onChange(event.target.value)
-        }}
+        id={id}
+        isFilled={!!watch(name)}
+        {...register(name)}
+        disabled={isDisabled}
       />
       <label htmlFor={name}>{label}</label>
     </InputContainer>
