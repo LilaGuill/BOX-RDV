@@ -16,6 +16,4 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-
-
 `

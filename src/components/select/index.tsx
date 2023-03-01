@@ -1,3 +1,4 @@
+import { useMemo } from "react"
 import { components, DropdownIndicatorProps, GroupBase } from "react-select"
 import {
   IconContainer,
@@ -7,15 +8,9 @@ import {
   SelectContainer,
 } from "./styled-components"
 import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
-import { useState } from "react"
 
-const Select = () => {
-  const [value, setValue] = useState<any>("")
-
-  const options = [
-    { value: "manShort", label: "Coupe homme (cheveux courts)" },
-    { value: "womanShort", label: "Coupe femme (cheveux courts)" },
-  ]
+const Select = ({ label, color, options, value, onChange }: SelectProps) => {
+  const isFilled = useMemo(() => !!value.value, [value])
 
   const DropdownIndicator = (
     props: JSX.IntrinsicAttributes &
@@ -45,14 +40,14 @@ const Select = () => {
   }
 
   return (
-    <SelectContainer isFilled={!!value}>
-      <label>Choisir une prestation</label>
+    <SelectContainer isFilled={isFilled} color={color}>
+      <label>{label}</label>
       <SelectComponent
         components={{ DropdownIndicator, ValueContainer }}
         options={options}
         placeholder=""
         value={value}
-        onChange={(value) => setValue(value)}
+        onChange={(value) => onChange(value)}
       />
     </SelectContainer>
   )

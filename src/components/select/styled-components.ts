@@ -3,6 +3,7 @@ import Select from "react-select"
 
 export const SelectContainer = styled.div<{
   isFilled: boolean
+  color: string
 }>`
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.grey200};
@@ -10,9 +11,9 @@ export const SelectContainer = styled.div<{
   flex-direction: column;
   height: 48px;
   position: relative;
-  border-left: ${({ theme, isFilled }) =>
+  border-left: ${({ theme, isFilled, color }) =>
     isFilled
-      ? `4px solid ${theme.colors.green}`
+      ? `4px solid ${theme.colors[color]}`
       : `1px solid ${theme.colors.grey200}`};
 
   :focus-within label {
@@ -44,7 +45,10 @@ export const StyledValueContainer = styled.div<{ hasValue?: boolean }>`
   box-sizing: border-box;
   display: flex;
   padding-left: 9px;
-  margin-top: 10px;
+  margin-top: 8px;
+  height: 34px;
+  line-height: 20px;
+  float: left;
 `
 
 export const SelectComponent = styled(Select).attrs({
@@ -64,8 +68,7 @@ export const SelectComponent = styled(Select).attrs({
     justify-content: flex-start;
     position: relative;
     transition: all 0.3s ease;
-
-    &:hover,
+    s &:hover,
     &--is-focused {
       box-shadow: none;
 
@@ -94,9 +97,10 @@ export const SelectComponent = styled(Select).attrs({
     }
   }
   .react-select__menu {
-    z-index: 5;
+    z-index: 10;
 
     .react-select__menu-list {
+      background: white;
       .react-select__option {
         padding: 12px 8px;
         border-bottom: 1px solid ${({ theme }) => theme.colors.grey200};

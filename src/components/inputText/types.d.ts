@@ -1,6 +1,7 @@
 type InputTextProps = {
+  id: string
   label: string
   name: string
-  onChange: (value) => void
-  value?: string
+  onClick?: () => void
+  isDisabled?: boolean
 }

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Label, Input, Span, ToggleContainer } from "./styled-components"
 import Text from "../text"
 
