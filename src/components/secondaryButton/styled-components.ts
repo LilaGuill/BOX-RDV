@@ -1,13 +1,14 @@
 import styled from "styled-components"
 
 export const ButtonContainer = styled.div<{
-  selected?: boolean
   background?: string
+  gap?: string
   padding?: string
+  selected?: boolean
 }>`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: ${({ gap }) => gap || "6px"};
   cursor: pointer;
   background: ${({ background, theme }) =>
     background && theme.colors[background]};

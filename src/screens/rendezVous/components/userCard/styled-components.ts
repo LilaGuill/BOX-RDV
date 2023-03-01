@@ -1,23 +1,54 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  gap: 8px;
 `
 
-export const CardContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 14px;
+  margin: 0;
+  width: 100%;
 `
 
-export const UserInfoContainer = styled.div`
+export const Name = styled.div`
+  width: 356px;
+`
+
+export const Phone = styled.div`
+  width: 240px;
+`
+
+export const Email = styled.div`
+  width: 356px;
+`
+
+export const InfoFirstRow = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 8px;
+  margin-top: 16px;
+  margin-left: 40px;
+`
+
+export const InfoSecondRow = styled.div<{ isInfoVisible?: boolean }>`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: ${({ isInfoVisible }) => isInfoVisible && "20px"};
+`
+
+export const InfoThirdRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  margin-top: 10px;
+  margin-left: 40px;
 `
 
 export const InfoContainer = styled.div`
@@ -26,49 +57,16 @@ export const InfoContainer = styled.div`
   gap: 10px;
 `
 
-export const InputContainer = styled.div`
-  align-items: center;
-  display: flex;
-  gap: 14px;
-  margin: 0 8px;
-
-  & div:first-child {
-    width: 290px;
-  }
-  & div:nth-child(2) {
-    width: 240px;
-  }
-  & div:nth-child(3) {
-    width: 306px;
-  }
+export const IconContainer = styled.div`
+  margin-right: 10px;
+  cursor: pointer;
 `
-
-export const UserContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`
-
-export const InfoClient = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 5px 0;
-`
-
 export const InfoTextContainer = styled.div<{ isInfoVisible: boolean }>`
   display: flex;
   gap: 4px;
   flex-direction: column;
-  padding: ${({ isInfoVisible, theme }) =>
-    isInfoVisible ? "10px 12px" : "10px 0"};
+  padding: ${({ isInfoVisible }) => (isInfoVisible ? "10px 12px" : "10px 0")};
   border: ${({ isInfoVisible, theme }) =>
     isInfoVisible && `1px dashed ${theme.colors.grey200}`};
-  min-width: 100%;
-`
-
-export const FidelityContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 21px;
+  width: 100%;
 `

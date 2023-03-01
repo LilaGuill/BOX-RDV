@@ -17,7 +17,15 @@ export const RightButtons = styled.div`
 export const LeftButtons = styled.div`
   display: flex;
   align-items: center;
-  gap: 2px;
+`
+
+export const Buttons = styled.div`
+  display: flex;
+  gap: 8px;
+`
+export const Links = styled.div`
+  display: flex;
+  gap: 20px;
 `
 
 export const Separator = styled.div`
@@ -26,4 +34,5 @@ export const Separator = styled.div`
   align-items: center;
   width: 1px;
   background: ${({ theme }) => theme.colors.grey200};
+  margin: 0 28px;
 `

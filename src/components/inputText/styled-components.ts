@@ -6,6 +6,7 @@ export const InputContainer = styled.div<{ isFilled: boolean }>`
   flex-direction: column;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.grey200};
+  width: 100%;
 
   :focus-within label {
     transform: translate(0, 6px) scale(0.95);

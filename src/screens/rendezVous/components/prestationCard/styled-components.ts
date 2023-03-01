@@ -2,7 +2,13 @@ import styled from "styled-components"
 
 export const CardContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  min-height: 100%;
+`
+
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
 `
 
 export const SelectContainer = styled.div`
@@ -32,8 +38,5 @@ export const RightContainer = styled.div`
 `
 
 export const IconContainer = styled.div`
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  background: pink;
+  margin-top: 15px;
 `

@@ -12,14 +12,18 @@ export const StyledButton = styled.button<{
   border-radius: 6px;
   border: ${({ buttonType, theme }) =>
     buttonType === "secondary" && `1px solid ${theme.colors.grey800}`};
+  box-sizing: border-box;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
   display: flex;
-  height: ${({ size }) => (size === "small" ? "40px" : "auto")};
+  height: ${({ size }) =>
+    size === "small" ? "40px" : size === "medium" ? "48px" : "auto"};
   justify-content: center;
-  padding: ${({ size }) => (size === "small" ? "10px 10px" : "18px 16px")};
+  padding: ${({ size }) =>
+    size === "small" || size === "medium" ? "10px 10px" : "18px 16px"};
   transition: all 0.3s ease;
-  width: ${({ size }) => (size === "small" ? "40px" : "auto")};
+  width: ${({ size }) =>
+    size === "small" ? "40px" : size === "medium" ? "48px" : "auto"};
 
   &:hover {
     box-shadow: 0 0 10px rgba(33, 33, 33, 0.2);

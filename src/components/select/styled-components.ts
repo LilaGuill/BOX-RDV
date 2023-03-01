@@ -45,7 +45,10 @@ export const StyledValueContainer = styled.div<{ hasValue?: boolean }>`
   box-sizing: border-box;
   display: flex;
   padding-left: 9px;
-  margin-top: 10px;
+  margin-top: 8px;
+  height: 34px;
+  line-height: 20px;
+  float: left;
 `
 
 export const SelectComponent = styled(Select).attrs({
@@ -65,8 +68,7 @@ export const SelectComponent = styled(Select).attrs({
     justify-content: flex-start;
     position: relative;
     transition: all 0.3s ease;
-
-    &:hover,
+    s &:hover,
     &--is-focused {
       box-shadow: none;
 

@@ -1,9 +1,11 @@
 import Button from "../button"
 import Text from "../text"
 import {
+  Buttons,
   FooterContainer,
-  RightButtons,
   LeftButtons,
+  Links,
+  RightButtons,
   Separator,
 } from "./styled-components"
 import { ReactComponent as CopyIcon } from "../../assets/copy.svg"
@@ -15,17 +17,21 @@ const Footer = ({ price }: FooterProps) => {
   return (
     <FooterContainer>
       <LeftButtons>
-        <SecondaryButton value="Choisi(e)" background="green" padding="10px" />
-        <SecondaryButton value="Venu(e)" background="blue" padding="10px" />
-        <SecondaryButton value="Pas venu(e)" background="red" padding="10px" />
+        <Buttons>
+          <SecondaryButton
+            value="Choisi(e)"
+            background="green"
+            padding="10px"
+          />
+          <SecondaryButton value="Venu" background="blue" padding="10px" />
+          <SecondaryButton value="Pas venu" background="red" padding="10px" />
+        </Buttons>
         <Separator />
-        <SecondaryButton value="Copier" icon={<CopyIcon />} padding="10px" />
-        <SecondaryButton value="Couper" icon={<CutIcon />} padding="10px" />
-        <SecondaryButton
-          value="Supprimer"
-          icon={<FillBinIcon />}
-          padding="10px"
-        />
+        <Links>
+          <SecondaryButton value="Copier" icon={<CopyIcon />} />
+          <SecondaryButton value="Couper" icon={<CutIcon />} />
+          <SecondaryButton value="Supprimer" icon={<FillBinIcon />} />
+        </Links>
       </LeftButtons>
       <RightButtons>
         <Button size="large" buttonType="secondary">

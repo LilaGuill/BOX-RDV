@@ -2,16 +2,18 @@ import Text from "../text"
 import { ButtonContainer } from "./styled-components"
 
 const SecondaryButton = ({
-  onClick,
-  value,
-  color,
   background,
+  color,
+  gap,
   icon,
+  onClick,
   optionalText,
   padding,
+  value,
 }: SecondaryButtonProps) => {
   return (
     <ButtonContainer
+      gap={gap}
       onClick={onClick}
       background={background}
       padding={padding}
