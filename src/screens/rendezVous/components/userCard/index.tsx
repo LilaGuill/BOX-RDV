@@ -1,10 +1,12 @@
 import { useState } from "react"
-import { useFormContext } from "react-hook-form"
+import { useFormContext, Controller } from "react-hook-form"
+
 import {
   Button,
   Card,
   Gender,
   InputText,
+  InputPhone,
   Text,
   Birthday,
   Toggle,
@@ -35,7 +37,7 @@ const UseCard = () => {
   const [canCreateUser, setCanCreateUser] = useState(false)
   const [isInfoVisible, setIsInfoVisible] = useState(false)
 
-  const { resetField } = useFormContext()
+  const { resetField, control } = useFormContext()
 
   const onRemove = () => {
     resetField("user.username")
@@ -59,11 +61,24 @@ const UseCard = () => {
             />
           </Name>
           <Phone>
-            <InputText
+            {/*<InputText
               name="user.phone"
               id="phone"
-              label="phone"
+              label="Téléphone"
               isDisabled={!canCreateUser}
+  />*/}
+            <Controller
+              name="user.phone"
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <InputPhone
+                  name="user.phone"
+                  label="Téléphone"
+                  id="phone"
+                  value={value}
+                  onChange={onChange}
+                />
+              )}
             />
           </Phone>
           <Email>
