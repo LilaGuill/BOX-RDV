@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components"
 
 export const Container = styled.div<{ isFilled?: boolean }>`
-  display: flex;
-  border: 1px solid ${({ theme }) => theme.colors.grey200};
   border-radius: 6px;
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
+  display: flex;
 
   ${({ isFilled }) =>
     isFilled &&

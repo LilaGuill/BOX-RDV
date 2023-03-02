@@ -3,9 +3,9 @@ import { components, DropdownIndicatorProps, GroupBase } from "react-select"
 import {
   IconContainer,
   SelectComponent,
-  StyledValueContainer,
-  StyledIcon,
   SelectContainer,
+  StyledIcon,
+  StyledValueContainer,
 } from "./styled-components"
 import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
 

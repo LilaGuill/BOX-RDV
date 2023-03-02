@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+  align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: all 0.3s ease;
 
   & div:first-child {
@@ -23,12 +23,12 @@ export const Container = styled.div`
 `
 
 export const GenderButton = styled.div<{ isSelected?: boolean }>`
-  width: 100px;
-  height: 48px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border: 1px solid ${({ theme }) => theme.colors.grey200};
   background: ${({ isSelected, theme }) =>
     isSelected ? theme.colors.white : theme.colors.grey100};
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 100px;
 `

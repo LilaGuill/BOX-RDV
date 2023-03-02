@@ -22,7 +22,16 @@ const RendezVous = () => {
   const [canCreateUser, setCanCreateUser] = useState(false)
   const methods = useForm({
     defaultValues: {
-      user: { username: "", gender: "man" },
+      user: {
+        username: "",
+        email: "",
+        phone: "",
+        gender: "man",
+        birthay: { day: 22, month: "Sept" },
+        sms: {
+          reminder: true,
+        },
+      },
       schedule: { date: new Date() },
       prestations: [defaultPrestations],
       chosen: true,

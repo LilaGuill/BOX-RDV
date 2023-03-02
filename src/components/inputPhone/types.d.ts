@@ -3,6 +3,6 @@ type InputPhoneProps = {
   label: string
   name: string
   onChange: (value?: E164Number | undefined) => void
-  isDisabled?: boolean
   value: string
+  isDisabled?: boolean
 }

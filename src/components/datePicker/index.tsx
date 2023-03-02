@@ -1,4 +1,3 @@
-import React from "react"
 import DatePicker, { registerLocale } from "react-datepicker"
 import { InputDate } from "./styled-components"
 import "react-datepicker/dist/react-datepicker.css"

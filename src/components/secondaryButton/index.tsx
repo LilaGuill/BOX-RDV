@@ -25,7 +25,6 @@ const SecondaryButton = ({
       >
         {value}
       </Text>
-
       {optionalText && (
         <Text weight={400} color="grey800">
           {optionalText}

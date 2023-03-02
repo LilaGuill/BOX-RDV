@@ -7,8 +7,8 @@ export const LayoutContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   margin: auto;
+  min-height: 100%;
   width: 1100px;
 
   ${media.lessThan("medium")`
@@ -17,14 +17,14 @@ export const LayoutContainer = styled.div`
 `
 
 export const HeaderContainer = styled.header`
+  align-items: center;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 12px 12px 0px 0px;
   border: 1px solid ${({ theme }) => theme.colors.grey200};
   box-sizing: border-box;
-  padding: 14px 28px;
-  height: 52px;
   display: flex;
-  align-items: center;
+  height: 52px;
+  padding: 14px 28px;
 `
 
 export const Main = styled.main`
@@ -33,8 +33,8 @@ export const Main = styled.main`
 `
 
 export const FooterContainer = styled.footer`
-  border: 1px solid ${({ theme }) => theme.colors.grey200};
-  height: 80px;
-  display: flex;
   align-items: center;
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
+  display: flex;
+  height: 80px;
 `

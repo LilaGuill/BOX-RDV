@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import { useMemo } from "react"
 import { useFormContext } from "react-hook-form"
 import Text from "../text"
 import {
@@ -16,8 +16,9 @@ const InputText = ({
   onClick,
 }: InputTextProps) => {
   const { watch, register } = useFormContext()
+  const value = watch(name)
 
-  const isButtonVisible = useMemo(() => watch(name)?.length > 1, [watch(name)])
+  const isButtonVisible = useMemo(() => value?.length > 1, [value])
 
   return (
     <Container isFilled={!!watch(name)}>

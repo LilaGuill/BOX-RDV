@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form"
 import Button from "../button"
+import SecondaryButton from "../secondaryButton"
 import Text from "../text"
 import {
   Buttons,
@@ -12,7 +13,6 @@ import {
 import { ReactComponent as CopyIcon } from "../../assets/copy.svg"
 import { ReactComponent as CutIcon } from "../../assets/cut.svg"
 import { ReactComponent as FillBinIcon } from "../../assets/fill-bin.svg"
-import SecondaryButton from "../secondaryButton"
 
 const Footer = ({ price, canCreateUser }: FooterProps) => {
   const { setValue, watch } = useFormContext()
@@ -52,7 +52,6 @@ const Footer = ({ price, canCreateUser }: FooterProps) => {
                 }}
               />
             </Buttons>
-
             <Separator />
             <Links>
               <SecondaryButton value="Copier" icon={<CopyIcon />} />
