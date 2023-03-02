@@ -26,6 +26,6 @@ export const StyledButton = styled.button<{
     size === "small" ? "40px" : size === "medium" ? "48px" : "auto"};
 
   &:hover {
-    box-shadow: 0 0 10px rgba(33, 33, 33, 0.2);
+    box-shadow: 0 0 5px rgba(33, 33, 33, 0.3);
   }
 `

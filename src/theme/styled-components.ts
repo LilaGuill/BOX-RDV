@@ -16,4 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+.react-datepicker-popper {
+  z-index: 10 !important;
+}
 `

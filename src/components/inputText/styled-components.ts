@@ -1,11 +1,27 @@
 import styled, { css } from "styled-components"
 
-export const InputContainer = styled.div<{ isFilled: boolean }>`
+export const Container = styled.div<{ isFilled?: boolean }>`
+  display: flex;
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
   border-radius: 6px;
+
+  ${({ isFilled }) =>
+    isFilled &&
+    css`
+      border: 1px solid ${({ theme }) => theme.colors.green};
+      box-shadow: 0 0 5px 0 rgba(72, 187, 120, 0.3);
+    `}
+
+  &:focus-within {
+    border: 1px solid ${({ theme }) => theme.colors.green};
+    box-shadow: 0 0 5px 0 rgba(72, 187, 120, 0.3);
+  }
+`
+
+export const InputContainer = styled.div<{ isFilled: boolean }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  border: 1px solid ${({ theme }) => theme.colors.grey200};
   width: 100%;
 
   :focus-within label {
@@ -51,12 +67,31 @@ export const StyledInput = styled.input<{
   ${({ isFilled }) =>
     isFilled &&
     css`
-      border: 1px solid ${({ theme }) => theme.colors.green};
       padding-top: 20px;
     `}
 
   :focus {
-    border: 1px solid ${({ theme }) => theme.colors.green};
     padding-top: 20px;
   }
+`
+
+export const ButtonContainer = styled.div<{ isVisible?: boolean }>`
+  height: 20px;
+  background: ${({ theme }) => theme.colors.green};
+  margin: 8px 8px 8px 0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 51px;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  ${({ isVisible }) =>
+    !isVisible &&
+    css`
+      display: none;
+    `}
 `

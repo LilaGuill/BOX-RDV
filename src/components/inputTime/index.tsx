@@ -1,25 +1,20 @@
 import { InputContainer, StyledInput } from "./styled-components"
+import { useFormContext } from "react-hook-form"
 
-const InputTime = ({ onChange, minutes, hours }: InputTimeProps) => {
+const InputTime = ({ name, defaultValue }: InputTimeProps) => {
+  const { watch, register } = useFormContext()
+
   return (
     <InputContainer>
       <StyledInput
-        name={"hours"}
-        id={"hours"}
+        {...register(`${name}.hours`)}
         type="number"
-        min="0"
-        max="23"
-        value={hours}
-        onChange={(event) => onChange(event?.target.value)}
+        defaultValue={defaultValue.hours}
       />
       <StyledInput
-        name={"minutes"}
-        id={"minutes"}
+        {...register(`${name}.minutes`)}
         type="number"
-        min="0"
-        max="59"
-        value={minutes}
-        onChange={(event) => onChange(event?.target.value)}
+        defaultValue={defaultValue.minutes}
       />
     </InputContainer>
   )

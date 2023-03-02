@@ -1,29 +1,33 @@
 import { useState } from "react"
+import { useFormContext } from "react-hook-form"
 import Text from "../text"
 import { Container, GenderButton } from "./styled-component"
 
-const Gender = () => {
-  const [selectedValue, setSelectedValue] = useState("man")
-
+const Gender = ({ onChange, value }: GenderProps) => {
   const options = [
     { value: "man", label: "Homme" },
     { value: "wooman", label: "Femme" },
     { value: "child", label: "Enfant" },
   ]
 
+  console.log("value", value)
+
   return (
     <Container>
-      {options.map(({ value, label }, index) => (
+      {options.map((option, index) => (
         <GenderButton
           key={index}
-          isSelected={selectedValue === value}
-          onClick={() => setSelectedValue(value)}
+          isSelected={value === option.value}
+          onClick={() => {
+            console.log("value", option.value)
+            onChange(option.value)
+          }}
         >
           <Text
             weight={400}
-            color={selectedValue === value ? "grey900" : "grey700"}
+            color={value === option.value ? "grey900" : "grey700"}
           >
-            {label}
+            {option.label}
           </Text>
         </GenderButton>
       ))}

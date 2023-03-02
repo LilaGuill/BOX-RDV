@@ -1,15 +1,17 @@
 import { useState } from "react"
-import { useFormContext } from "react-hook-form"
+import { useFormContext, Controller } from "react-hook-form"
 import {
   Button,
   Card,
   Gender,
   InputText,
+  InputPhone,
   Text,
   Birthday,
   Toggle,
   SecondaryButton,
 } from "../../../../components"
+
 import { ReactComponent as BirthdayIcon } from "../../../../assets/birthday.svg"
 import { ReactComponent as UserIcon } from "../../../../assets/user.svg"
 import { ReactComponent as GenderIcon } from "../../../../assets/gender.svg"
@@ -17,6 +19,7 @@ import { ReactComponent as InfoIcon } from "../../../../assets/info.svg"
 import { ReactComponent as CopyIcon } from "../../../../assets/copy.svg"
 import { ReactComponent as FidelityIcon } from "../../../../assets/fidelity.svg"
 import {
+  Container,
   CardContainer,
   InfoThirdRow,
   InfoSecondRow,
@@ -31,17 +34,22 @@ import {
 } from "./styled-components"
 import { ReactComponent as BinIcon } from "../../../../assets/bin.svg"
 
-const UseCard = () => {
-  const [canCreateUser, setCanCreateUser] = useState(false)
+const UseCard = ({
+  onCreateUser,
+  canCreateUser,
+}: {
+  canCreateUser: boolean
+  onCreateUser: (value: boolean) => void
+}) => {
   const [isInfoVisible, setIsInfoVisible] = useState(false)
 
-  const { resetField } = useFormContext()
+  const { resetField, control } = useFormContext()
 
   const onRemove = () => {
     resetField("user.username")
     resetField("user.phone")
     resetField("user.email")
-    setCanCreateUser(false)
+    onCreateUser(false)
     setIsInfoVisible(false)
   }
 
@@ -55,22 +63,30 @@ const UseCard = () => {
               label="Choisir un client"
               id="username"
               name="user.username"
-              onClick={() => setCanCreateUser(true)}
+              onClick={() => onCreateUser(true)}
             />
           </Name>
           <Phone>
-            <InputText
+            <Controller
               name="user.phone"
-              id="phone"
-              label="phone"
-              isDisabled={!canCreateUser}
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <InputPhone
+                  name="user.phone"
+                  label="Téléphone"
+                  id="phone"
+                  value={value}
+                  onChange={onChange}
+                  isDisabled={!canCreateUser}
+                />
+              )}
             />
           </Phone>
           <Email>
             <InputText
               name="user.email"
               id="email"
-              label="email"
+              label="Email"
               isDisabled={!canCreateUser}
             />
           </Email>
@@ -86,26 +102,44 @@ const UseCard = () => {
           )}
         </InputContainer>
         {canCreateUser && (
-          <div style={{ width: "100%" }}>
+          <Container>
             <InfoFirstRow>
               <InfoContainer>
                 <GenderIcon />
-                <Gender />
+                <Controller
+                  name="user.gender"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <Gender onChange={onChange} value={value} />
+                  )}
+                />
               </InfoContainer>
               <InfoContainer>
                 <BirthdayIcon />
                 <Birthday />
               </InfoContainer>
               <InfoContainer>
-                <Toggle
-                  label="SMS de rappel"
-                  isToggled={true}
-                  onClick={() => null}
+                <Controller
+                  name="user.sms.reminder"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <Toggle
+                      label="SMS de rappel"
+                      isToggled={value}
+                      onClick={onChange}
+                    />
+                  )}
                 />
-                <Toggle
-                  label="SMS marketing"
-                  isToggled={false}
-                  onClick={() => null}
+                <Controller
+                  name="user.sms.marketing"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <Toggle
+                      label="SMS marketing"
+                      isToggled={value}
+                      onClick={onChange}
+                    />
+                  )}
                 />
               </InfoContainer>
             </InfoFirstRow>
@@ -147,7 +181,7 @@ const UseCard = () => {
                 icon={<CopyIcon width={14} height={14} />}
               />
             </InfoThirdRow>
-          </div>
+          </Container>
         )}
       </CardContainer>
     </Card>

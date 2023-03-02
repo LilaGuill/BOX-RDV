@@ -36,11 +36,12 @@ export const InfoFirstRow = styled.div`
 `
 
 export const InfoSecondRow = styled.div<{ isInfoVisible?: boolean }>`
-  display: flex;
   align-items: center;
-  margin-top: 10px;
-  margin-left: 40px;
+  cursor: pointer;
+  display: flex;
   margin-bottom: ${({ isInfoVisible }) => isInfoVisible && "20px"};
+  margin-left: 40px;
+  margin-top: 10px;
 `
 
 export const InfoThirdRow = styled.div`
@@ -68,5 +69,9 @@ export const InfoTextContainer = styled.div<{ isInfoVisible: boolean }>`
   padding: ${({ isInfoVisible }) => (isInfoVisible ? "10px 12px" : "10px 0")};
   border: ${({ isInfoVisible, theme }) =>
     isInfoVisible && `1px dashed ${theme.colors.grey200}`};
+  width: 100%;
+`
+
+export const Container = styled.div`
   width: 100%;
 `

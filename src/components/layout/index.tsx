@@ -7,7 +7,7 @@ import {
 import Header from "../header"
 import Footer from "../footer"
 
-const Layout = ({ children, price }: LayoutProps) => {
+const Layout = ({ children, price, canCreateUser }: LayoutProps) => {
   return (
     <LayoutContainer>
       <HeaderContainer>
@@ -15,7 +15,7 @@ const Layout = ({ children, price }: LayoutProps) => {
       </HeaderContainer>
       <Main>{children}</Main>
       <FooterContainer>
-        <Footer price={price} />
+        <Footer price={price} canCreateUser={canCreateUser} />
       </FooterContainer>
     </LayoutContainer>
   )

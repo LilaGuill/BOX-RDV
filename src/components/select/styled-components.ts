@@ -44,8 +44,8 @@ export const StyledValueContainer = styled.div<{ hasValue?: boolean }>`
   border-radius: 6px 0 0 6px;
   box-sizing: border-box;
   display: flex;
-  padding-left: 9px;
-  margin-top: 8px;
+  padding-left: 9px;s
+  margin-top: 6px;
   height: 34px;
   line-height: 20px;
   float: left;
@@ -82,6 +82,7 @@ export const SelectComponent = styled(Select).attrs({
     }
     .react-select__value-container {
       padding: 0;
+      margin-top: 8px;
     }
 
     .react-select__single-value {
