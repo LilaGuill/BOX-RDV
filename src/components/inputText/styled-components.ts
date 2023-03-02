@@ -4,13 +4,7 @@ export const Container = styled.div<{ isFilled?: boolean }>`
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.grey200};
   display: flex;
-
-  ${({ isFilled }) =>
-    isFilled &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.green};
-      box-shadow: 0 0 5px 0 rgba(72, 187, 120, 0.3);
-    `}
+  transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.green};

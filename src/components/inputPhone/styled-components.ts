@@ -14,14 +14,9 @@ export const InputContainer = styled.div<{ $isFilled: boolean }>`
   position: relative;
   width: 100%;
 
-  ${({ $isFilled }) =>
-    $isFilled &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.green};
-    `}
-
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.green};
+    box-shadow: 0 0 5px 0 rgba(72, 187, 120, 0.3);
   }
 
   :focus-within label {
