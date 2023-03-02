@@ -44,7 +44,7 @@ const RendezVous = () => {
     name: "prestations",
   })
 
-  const onSubmit = (data: any) => console.log("data", data)
+  const onSubmit = (data: UserType) => console.log("data", data)
 
   const price = watch("prestations").reduce(
     (total, { price }) => (!isNaN(price) ? Number(price) + total : total),
