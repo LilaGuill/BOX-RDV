@@ -1,6 +1,5 @@
-import React, { useState } from "react"
-import { useForm } from "react-hook-form"
-
+import { useState } from "react"
+import { useForm, useFieldArray, FormProvider } from "react-hook-form"
 import { Layout, SecondaryButton } from "../../components"
 import {
   AddPrestation,
@@ -11,63 +10,63 @@ import {
 import { Container, ContainerButtons, Form } from "./styled-components"
 import { ReactComponent as FileIcon } from "../../assets/file.svg"
 import { ReactComponent as EditIcon } from "../../assets/edit.svg"
-import { FormProvider } from "react-hook-form"
 
-type PrestationType = {
-  prestationType: { value: string; label: string }
-  collaborator: { value: string; label: string }
-  price: number
+const defaultPrestations = {
+  prestationType: { value: "", label: "" },
+  collaborator: { value: "", label: "" },
+  price: 60,
+  duration: 60,
 }
 
 const RendezVous = () => {
-  const methods = useForm()
+  const [canCreateUser, setCanCreateUser] = useState(false)
+  const methods = useForm({
+    defaultValues: {
+      user: { username: "", gender: "man" },
+      schedule: { date: new Date() },
+      prestations: [defaultPrestations],
+      chosen: true,
+      came: true,
+    },
+  })
+  const { control, setValue, watch } = methods
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "prestations",
+  })
 
   const onSubmit = (data: any) => console.log("data", data)
 
-  const [prestations, setPrestations] = useState([
-    {
-      prestationType: { value: "", label: "" },
-      collaborator: { value: "", label: "" },
-      price: 60,
-    },
-  ])
+  const price = watch("prestations").reduce(
+    (total, { price }) => (!isNaN(price) ? Number(price) + total : total),
+    0
+  )
 
   const renderPrestations = () =>
-    prestations?.map((prestation, index) => (
+    fields?.map((field, index) => (
       <PrestationCard
-        key={index}
-        prestation={prestation}
-        onChange={(value, type) => {
-          const newPrestations = [...prestations]
-          newPrestations[index][type as keyof PrestationType] = value
-          setPrestations(newPrestations)
-        }}
-        onRemove={() => {
-          setPrestations(prestations.filter((_, i) => index !== i))
-        }}
+        index={index}
+        key={field.id}
+        onRemove={() =>
+          fields.length === 1
+            ? setValue("prestations", [defaultPrestations])
+            : remove(index)
+        }
       />
     ))
 
   return (
     <FormProvider {...methods}>
       <Form onSubmit={methods.handleSubmit(onSubmit)}>
-        <Layout price={60}>
+        <Layout price={price} canCreateUser={canCreateUser}>
           <Container>
-            <UserCard />
+            <UserCard
+              canCreateUser={canCreateUser}
+              onCreateUser={(value) => setCanCreateUser(value)}
+            />
             <ScheduleCard />
             {renderPrestations()}
-            <AddPrestation
-              onClick={() => {
-                setPrestations([
-                  ...prestations,
-                  {
-                    prestationType: { value: "", label: "" },
-                    collaborator: { value: "", label: "" },
-                    price: 60,
-                  },
-                ])
-              }}
-            />
+            <AddPrestation onClick={() => append(defaultPrestations)} />
             <ContainerButtons>
               <SecondaryButton
                 value="Ajouter un titre"

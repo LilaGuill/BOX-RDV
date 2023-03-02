@@ -16,7 +16,7 @@ const InputText = ({
   value,
   isDisabled,
 }: InputPhoneProps) => {
-  const { register, watch } = useFormContext()
+  const { watch } = useFormContext()
 
   return (
     <Container>

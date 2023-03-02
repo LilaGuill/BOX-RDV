@@ -1,3 +1,4 @@
+import { useFormContext, Controller } from "react-hook-form"
 import { Card, Select, InputNumber, Button } from "../../../../components"
 import { ReactComponent as FileIcon } from "../../../../assets/file.svg"
 import { ReactComponent as BinIcon } from "../../../../assets/bin.svg"
@@ -25,12 +26,9 @@ const collaboratorOptions = [
   { value: "leo", label: "Léo" },
 ]
 
-const PrestationCard = ({
-  onRemove,
-  onChange,
-  prestation,
-}: PrestationCardProps) => {
-  const { prestationType, collaborator } = prestation
+const PrestationCard = ({ onRemove, index }: PrestationCardProps) => {
+  const { control, watch } = useFormContext()
+  const { prestationType, collaborator } = watch(`prestations.${index}`)
 
   return (
     <Card>
@@ -41,39 +39,66 @@ const PrestationCard = ({
         <Container>
           <SelectContainer>
             <PrestationContainer>
-              <Select
-                value={prestationType}
-                onChange={(value) => onChange(value, "prestationType")}
-                label={
-                  prestationType.value ? "Prestation" : "Choisir une prestation"
-                }
-                color="green"
-                options={prestationOptions}
+              <Controller
+                name={`prestations.${index}.prestationType`}
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    value={value}
+                    onChange={(value) => onChange(value, "prestationType")}
+                    label={
+                      value.value ? "Prestation" : "Choisir une prestation"
+                    }
+                    color="green"
+                    options={prestationOptions}
+                  />
+                )}
               />
             </PrestationContainer>
             <CollaboratorContainer hasValue={!!collaborator.value}>
-              <Select
-                value={collaborator}
-                onChange={(value) => onChange(value, "collaborator")}
-                label={collaborator.value ? "Avec" : "Choisir un collaborateur"}
-                color="blueLight"
-                options={collaboratorOptions}
+              <Controller
+                name={`prestations.${index}.collaborator`}
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    value={value}
+                    onChange={(value) => onChange(value, "collaborator")}
+                    label={value.value ? "Avec" : "Choisir un collaborateur"}
+                    color="blueLight"
+                    options={collaboratorOptions}
+                  />
+                )}
               />
             </CollaboratorContainer>
           </SelectContainer>
           <RightContainer>
-            <InputNumber value={60} unit="Min" onChange={() => null} />
+            <Controller
+              name={`prestations.${index}.duration`}
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <InputNumber unit="Min" onChange={onChange} value={value} />
+              )}
+            />
+
             {prestationType.value && collaborator.value && (
-              <InputNumber value={60} unit="€" onChange={() => null} />
+              <Controller
+                name={`prestations.${index}.price`}
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <InputNumber unit="€" onChange={onChange} value={value} />
+                )}
+              />
             )}
-            <Button
-              buttonType="secondary"
-              color="white"
-              size="medium"
-              onClick={onRemove}
-            >
-              <BinIcon />
-            </Button>
+            {(prestationType.value || collaborator.value) && (
+              <Button
+                buttonType="secondary"
+                color="white"
+                size="medium"
+                onClick={onRemove}
+              >
+                <BinIcon />
+              </Button>
+            )}
           </RightContainer>
         </Container>
       </CardContainer>

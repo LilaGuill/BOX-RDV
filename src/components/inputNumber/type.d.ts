@@ -1,5 +1,5 @@
 type InputNumberProps = {
   unit: string
-  value: number
-  onChange: () => void
+  value?: number
+  onChange?: () => void
 }

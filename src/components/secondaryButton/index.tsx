@@ -25,9 +25,12 @@ const SecondaryButton = ({
       >
         {value}
       </Text>
-      <Text weight={400} color="grey800">
-        {optionalText}
-      </Text>
+
+      {optionalText && (
+        <Text weight={400} color="grey800">
+          {optionalText}
+        </Text>
+      )}
     </ButtonContainer>
   )
 }

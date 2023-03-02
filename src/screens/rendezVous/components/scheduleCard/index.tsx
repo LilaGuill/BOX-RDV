@@ -1,9 +1,10 @@
 import { useState } from "react"
+import { useFormContext, Controller } from "react-hook-form"
 import {
   Card,
   Checkbox,
   InputTime,
-  InputDate,
+  DatePicker,
   SecondaryButton,
   Text,
 } from "../../../../components"
@@ -19,6 +20,11 @@ import {
 
 const ScheduleCard = () => {
   const [isFullDay, setIsFullDay] = useState<boolean>(false)
+  const { control, setValue, watch } = useFormContext()
+
+  const duration = `${
+    watch("schedule.to.hours") - watch("schedule.from.hours")
+  }h${watch("schedule.to.minutes") - watch("schedule.from.minutes") || ""}`
 
   return (
     <Card>
@@ -26,25 +32,40 @@ const ScheduleCard = () => {
         <TimetableIcon />
         <SchedulerContainer>
           <InputContainer>
-            <InputDate />
+            <Controller
+              name="schedule.date"
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <DatePicker value={value} onChange={onChange} />
+              )}
+            />
           </InputContainer>
           {!isFullDay && (
             <TimeContainer>
               <Text color="grey800" weight={400}>
                 de
               </Text>
-              <InputTime hours={14} minutes={30} onChange={() => null} />
+              <InputTime
+                defaultValue={{ hours: 14, minutes: 30 }}
+                name="schedule.from"
+              />
               <Text color="grey800" weight={400}>
                 à
               </Text>
-              <InputTime hours={15} minutes={30} onChange={() => null} />
-              <Text>(1h)</Text>
+              <InputTime
+                defaultValue={{ hours: 15, minutes: 30 }}
+                name="schedule.to"
+              />
+              <Text>({duration})</Text>
             </TimeContainer>
           )}
           <CheckboxContainer>
             <Checkbox
-              checked={isFullDay}
-              onChange={() => setIsFullDay(!isFullDay)}
+              checked={watch("schedule.isFullDay")}
+              onChange={() => {
+                setValue("schedule.isFullDay", !watch("schedule.isFullDay"))
+                setIsFullDay(!isFullDay)
+              }}
               label="Jour entier"
             />
           </CheckboxContainer>

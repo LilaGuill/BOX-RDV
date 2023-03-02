@@ -4,7 +4,7 @@ import Text from "../text"
 const InputNumber = ({ unit, value, onChange }: InputNumberProps) => {
   return (
     <InputContainer>
-      <StyledInput defaultValue={value} />
+      <StyledInput value={value} onChange={onChange} type="number" />
       <StyledUnit>
         <Text weight={400}>{unit}</Text>
       </StyledUnit>
