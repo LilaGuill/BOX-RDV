@@ -1,8 +1,8 @@
 type SecondaryButtonProps = {
   background?: string
   color?: string
-  icon?: React.ReactElement
   gap?: string
+  icon?: React.ReactElement
   onClick?: () => void
   optionalText?: string
   padding?: string

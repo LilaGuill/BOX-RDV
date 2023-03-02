@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const InputContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 
   & input:first-child {
@@ -25,8 +25,8 @@ export const StyledInput = styled.input`
   font-size: 13px;
   font-weight: 400;
   height: 48px;
-  width: 48px;
   outline: none;
   padding-left: 12px;
   transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  width: 48px;
 `

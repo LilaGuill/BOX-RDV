@@ -1,4 +1,4 @@
 type InputTimeProps = {
-  name?: string
-  defaultValue?: any
+  name: string
+  defaultValue: { hours: number; minutes: number }
 }

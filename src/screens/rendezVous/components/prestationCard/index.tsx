@@ -1,4 +1,5 @@
 import { useFormContext, Controller } from "react-hook-form"
+import { size } from "lodash"
 import { Card, Select, InputNumber, Button } from "../../../../components"
 import { ReactComponent as FileIcon } from "../../../../assets/file.svg"
 import { ReactComponent as BinIcon } from "../../../../assets/bin.svg"
@@ -29,6 +30,9 @@ const collaboratorOptions = [
 const PrestationCard = ({ onRemove, index }: PrestationCardProps) => {
   const { control, watch } = useFormContext()
   const { prestationType, collaborator } = watch(`prestations.${index}`)
+
+  const isRemoveButtonVisible =
+    prestationType.value || collaborator.value || size(watch("prestations")) > 1
 
   return (
     <Card>
@@ -89,7 +93,7 @@ const PrestationCard = ({ onRemove, index }: PrestationCardProps) => {
                 )}
               />
             )}
-            {(prestationType.value || collaborator.value) && (
+            {isRemoveButtonVisible && (
               <Button
                 buttonType="secondary"
                 color="white"

@@ -1,12 +1,11 @@
-import React from "react"
 import { useFormContext } from "react-hook-form"
 import "react-phone-number-input/style.css"
-import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
 import {
+  Container,
   InputContainer,
   StyledPhoneInput,
-  Container,
 } from "./styled-components"
+import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
 
 const InputText = ({
   name,

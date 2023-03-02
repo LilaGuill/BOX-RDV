@@ -2,7 +2,7 @@ import { InputContainer, StyledInput } from "./styled-components"
 import { useFormContext } from "react-hook-form"
 
 const InputTime = ({ name, defaultValue }: InputTimeProps) => {
-  const { watch, register } = useFormContext()
+  const { register } = useFormContext()
 
   return (
     <InputContainer>

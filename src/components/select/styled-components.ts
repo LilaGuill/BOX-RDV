@@ -68,13 +68,12 @@ export const SelectComponent = styled(Select).attrs({
     justify-content: flex-start;
     position: relative;
     transition: all 0.3s ease;
-    s &:hover,
+
+    &:hover,
     &--is-focused {
       box-shadow: none;
-
-      &::before {
-      }
     }
+
     .react-select__input-container {
       height: 46px;
       margin: 0;
@@ -102,6 +101,7 @@ export const SelectComponent = styled(Select).attrs({
 
     .react-select__menu-list {
       background: white;
+
       .react-select__option {
         padding: 12px 8px;
         border-bottom: 1px solid ${({ theme }) => theme.colors.grey200};

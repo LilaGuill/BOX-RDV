@@ -1,22 +1,16 @@
 import styled from "styled-components"
 
-export const ToggleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`
-
 export const Label = styled.label`
-  position: relative;
   display: inline-block;
-  width: 34px;
   height: 20px;
+  position: relative;
+  width: 34px;
 `
 
 export const Input = styled.input`
+  height: 0;
   opacity: 0;
   width: 0;
-  height: 0;
 
   :checked + span {
     background-color: ${({ theme }) => theme.colors.green};
@@ -28,25 +22,31 @@ export const Input = styled.input`
 `
 
 export const Span = styled.span`
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background: ${({ theme }) => theme.colors.grey400};
-  transition: 0.3s;
   border-radius: 16px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.3s;
 
   :before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    top: 3px;
     background-color: ${({ theme }) => theme.colors.white};
     border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
     transition: 0.3s;
+    width: 14px;
   }
+`
+
+export const ToggleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `

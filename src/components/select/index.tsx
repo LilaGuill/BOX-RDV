@@ -1,11 +1,16 @@
 import { useMemo } from "react"
-import { components, DropdownIndicatorProps, GroupBase } from "react-select"
+import {
+  components,
+  DropdownIndicatorProps,
+  GroupBase,
+  ValueContainerProps,
+} from "react-select"
 import {
   IconContainer,
   SelectComponent,
-  StyledValueContainer,
-  StyledIcon,
   SelectContainer,
+  StyledIcon,
+  StyledValueContainer,
 } from "./styled-components"
 import { ReactComponent as CaretDownIcon } from "../../assets/caret-down.svg"
 
@@ -27,12 +32,14 @@ const Select = ({ label, color, options, value, onChange }: SelectProps) => {
     )
   }
 
-  const ValueContainer = ({ children, ...props }: any) => {
+  const ValueContainer = (
+    props: ValueContainerProps<unknown, boolean, GroupBase<unknown>>
+  ) => {
     return (
       components.ValueContainer && (
         <components.ValueContainer {...props}>
           <StyledValueContainer hasValue={props.hasValue}>
-            {children}
+            {props.children}
           </StyledValueContainer>
         </components.ValueContainer>
       )

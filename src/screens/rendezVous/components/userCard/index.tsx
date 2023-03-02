@@ -19,18 +19,18 @@ import { ReactComponent as InfoIcon } from "../../../../assets/info.svg"
 import { ReactComponent as CopyIcon } from "../../../../assets/copy.svg"
 import { ReactComponent as FidelityIcon } from "../../../../assets/fidelity.svg"
 import {
-  Container,
   CardContainer,
-  InfoThirdRow,
-  InfoSecondRow,
-  InfoContainer,
+  Container,
+  Email,
   IconContainer,
-  InfoTextContainer,
-  InputContainer,
+  InfoContainer,
   InfoFirstRow,
+  InfoSecondRow,
+  InfoTextContainer,
+  InfoThirdRow,
+  InputContainer,
   Name,
   Phone,
-  Email,
 } from "./styled-components"
 import { ReactComponent as BinIcon } from "../../../../assets/bin.svg"
 
@@ -46,9 +46,7 @@ const UseCard = ({
   const { resetField, control } = useFormContext()
 
   const onRemove = () => {
-    resetField("user.username")
-    resetField("user.phone")
-    resetField("user.email")
+    resetField("user")
     onCreateUser(false)
     setIsInfoVisible(false)
   }

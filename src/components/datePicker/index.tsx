@@ -1,11 +1,10 @@
-import React from "react"
 import DatePicker, { registerLocale } from "react-datepicker"
 import { InputDate } from "./styled-components"
 import "react-datepicker/dist/react-datepicker.css"
 import fr from "date-fns/locale/fr"
 registerLocale("fr", fr)
 
-const DatePickerComponent = ({ onChange, value }: any) => {
+const DatePickerComponent = ({ onChange, value }: DatePickerProps) => {
   return (
     <DatePicker
       selected={value}

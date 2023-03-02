@@ -22,7 +22,16 @@ const RendezVous = () => {
   const [canCreateUser, setCanCreateUser] = useState(false)
   const methods = useForm({
     defaultValues: {
-      user: { username: "", gender: "man" },
+      user: {
+        username: "",
+        email: "",
+        phone: "",
+        gender: "man",
+        birthay: { day: 22, month: "Sept" },
+        sms: {
+          reminder: true,
+        },
+      },
       schedule: { date: new Date() },
       prestations: [defaultPrestations],
       chosen: true,
@@ -35,7 +44,7 @@ const RendezVous = () => {
     name: "prestations",
   })
 
-  const onSubmit = (data: any) => console.log("data", data)
+  const onSubmit = (data: UserType) => console.log("data", data)
 
   const price = watch("prestations").reduce(
     (total, { price }) => (!isNaN(price) ? Number(price) + total : total),

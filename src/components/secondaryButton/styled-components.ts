@@ -6,12 +6,12 @@ export const ButtonContainer = styled.div<{
   padding?: string
   selected?: boolean
 }>`
-  display: flex;
   align-items: center;
-  gap: ${({ gap }) => gap || "6px"};
-  cursor: pointer;
   background: ${({ background, theme }) =>
     background && theme.colors[background]};
   border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  gap: ${({ gap }) => gap || "6px"};
   padding: ${({ padding }) => padding || 0};
 `

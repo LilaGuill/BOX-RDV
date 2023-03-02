@@ -12,6 +12,6 @@ export const ContainerButtons = styled.div`
 `
 
 export const Form = styled.form`
-  width: 100%;
   height: 100%;
+  width: 100%;
 `

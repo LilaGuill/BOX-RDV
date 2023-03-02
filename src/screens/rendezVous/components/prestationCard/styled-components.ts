@@ -6,27 +6,21 @@ export const CardContainer = styled.div`
   min-height: 100%;
 `
 
+export const CollaboratorContainer = styled.div<{ hasValue?: boolean }>`
+  min-width: ${({ hasValue }) => (hasValue ? "118px" : "195px")};
+`
+
 export const Container = styled.div`
   display: flex;
   width: 100%;
 `
 
-export const SelectContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  gap: 16px;
-  margin-left: 12px;
-  max-width: 525px;
+export const IconContainer = styled.div`
+  margin-top: 15px;
 `
 
 export const PrestationContainer = styled.div`
   min-width: 183px;
-`
-
-export const CollaboratorContainer = styled.div<{ hasValue?: boolean }>`
-  min-width: ${({ hasValue }) => (hasValue ? "118px" : "195px")};
 `
 
 export const RightContainer = styled.div`
@@ -37,6 +31,12 @@ export const RightContainer = styled.div`
   flex: 1;
 `
 
-export const IconContainer = styled.div`
-  margin-top: 15px;
+export const SelectContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 16px;
+  margin-left: 12px;
+  max-width: 525px;
 `
